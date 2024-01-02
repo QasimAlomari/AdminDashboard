@@ -1,0 +1,66 @@
+﻿@model Domain.ViewModel.CategoryModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<style>
+    .table-container {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #f7f7f7;
+    }
+
+    .table-row {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddd;
+        padding: 5px 0;
+    }
+
+    .table-label {
+        font-weight: bold;
+        width: 30%;
+    }
+
+    .table-value {
+        width: 70%;
+    }
+
+    .action-links {
+        margin-top: 20px;
+    }
+    .action-links a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #007bff;
+    }
+    .action-links a:hover {
+         text-decoration: underline;
+    }
+
+</style>
+
+<div class="table-container">
+    <h4>Category Model</h4>
+    <hr />
+    <div class="table-row">
+        <span class="table-label">@Html.DisplayNameFor(model => model.CategoryId)</span>
+        <span class="table-value">@Html.DisplayFor(model => model.CategoryId)</span>
+    </div>
+    <div class="table-row">
+        <span class="table-label">@Html.DisplayNameFor(model => model.CategoryName)</span>
+        <span class="table-value">@Html.DisplayFor(model => model.CategoryName)</span>
+    </div>
+</div>
+
+<div class="action-links">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryId }, new { @class = "btn btn-outline-primary" })
+    |
+    <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+</div>
+

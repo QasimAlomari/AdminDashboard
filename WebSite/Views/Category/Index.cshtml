@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Domain.ViewModel.CategoryModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-dark">Create New</a>
+</p>
+
+
+<style>
+    body 
+    {
+        background-color: darkgray;
+    }
+    
+</style>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="text-align:center">
+            <th>@Html.DisplayNameFor(model => model.CategoryId)</th>
+            <th>@Html.DisplayNameFor(model => model.CategoryName)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align:center">
+                <td>@Html.DisplayFor(modelItem => item.CategoryId)</td>
+                <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
+                <td>
+                    <div class="btn-group">
+                        <a style="margin-right:10px;" asp-action="Edit" asp-route-id="@item.CategoryId">
+                            <span class="btn btn-sm btn-outline-primary">
+                                <i class="fa fa-edit m-1" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                        <a style="margin-right:10px;" asp-action="Details" asp-route-id="@item.CategoryId">
+                            <span class="btn btn-sm btn-outline-warning">
+                                <i class="fa fa-info-circle m-1" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                        @if (item.IsActive == true && item.IsDelete == false)
+                        {
+                            <a style="margin-right:10px;" asp-action="Delete" asp-route-id="@item.CategoryId">
+                                <span class="btn btn-sm btn-outline-danger">
+                                    <i class="fa fa-trash m-1" aria-hidden="true"></i>
+                                </span> 
+                            </a>
+                            <a style="margin-right:10px;" asp-action="Active" asp-route-id="@item.CategoryId">
+                                <span class="btn btn-sm btn-outline-success">
+                                    <i id="open" class="fa fa-eye-slash m-1" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a style="margin-right:10px;" asp-action="Active" asp-route-id="@item.CategoryId">
+                                <span class="btn btn-sm btn-outline-success">
+                                    <i id="close" class="fa fa-eye m-1" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        }
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    
+}
+
+

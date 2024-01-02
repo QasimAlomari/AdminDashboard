@@ -1,0 +1,48 @@
+﻿@model Domain.ViewModel.CategoryModel
+
+@{
+    ViewData["Title"] = "Active";
+}
+
+
+<style>
+    h1,h3
+    {
+        text-align:center;
+    }
+    .table-container {
+        background-color: beige;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<br />
+<div class="container table-container">
+    <h1>Active</h1>
+    <h3>Are you sure you want to In Active Category ?</h3>
+
+    <br />
+    <br />
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Category ID</th>
+                <td>@Html.DisplayFor(model => model.CategoryId)</td>
+            </tr>
+            <tr>
+                <th>Category Name</th>
+                <td>@Html.DisplayFor(model => model.CategoryName)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form asp-action="Active">
+        <input type="submit" value="Active" class="btn btn-success" />
+        <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
+    </form>
+</div>
+
+
+

@@ -1,0 +1,68 @@
+﻿@model Domain.ViewModel.ProductModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ProductModelUpdate</h4>
+<hr />
+<div class="col-md-12">
+    <form asp-action="Edit" class="card">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <table class="table table-bordered">
+            <tbody style="text-align:center">
+                <tr>
+                    <th>
+                        <label asp-for="ProductId" class="control-label"></label>
+                    </th>
+                    <td>
+                        <input asp-for="ProductId" class="form-control form-group" readonly />
+                        <span asp-validation-for="ProductId" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="ProductName" class="control-label"></label>
+                    </th>
+                    <td>
+                        <input asp-for="ProductName" class="form-control form-group" />
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="ProductPrice" class="control-label"></label>
+                    </th>
+                    <td>
+                        <input asp-for="ProductPrice" class="form-control form-group" />
+                        <span asp-validation-for="ProductPrice" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="CategoryId" class="control-label"></label>
+                    </th>
+                    <td>
+                        <input asp-for="CategoryId" class="form-control form-group" />
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="form-group" style="margin-left:130px">
+            <input type="submit" value="Save" class="btn btn-outline-primary" />
+            <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
+
